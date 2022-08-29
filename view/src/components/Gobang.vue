@@ -1,10 +1,14 @@
 <template>
-<h5>五子棋</h5>
+  <div>
+    <add-gobang></add-gobang>
+  </div>
 </template>
 
 <script>
+import AddGobang from "@/components/addGobang";
 export default {
-  name: "Gobang"
+  name: "Gobang",
+  components: {AddGobang}
 }
 </script>
 

@@ -41,18 +41,44 @@ export default({
   setup() {
     const global=inject('global');
     const  axios=inject('axios');
+    const router=inject('router')
     const formState = reactive({
       username: '',
       password: '',
       remember: true,
     });
+    //没登陆，判断是否不需要登录
+    if(!global.isLogin){
+      const cookies=inject('cookies');
+      if(cookies.isKey("isLogin")){
+        const cookie_value=cookies.get("isLogin");
+        const url_preLogin=global.http_local_url+'log/preLogin/'+cookie_value;
+        axios.get(url_preLogin)
+            .then(res=>{
+              if(res.data.code===0){
+                global.username=res.data.data.username;
+                global.isLogin=true;
+                router.push({path:'/person'});
+              }
+              if(res.data.code===40){
+                console.log("preLogin fail");
+              }
+            })
+      }
+    }
 
     const onFinish = values => {
-
       const url=global.http_local_url+'log/login/'+formState.username+'/'+formState.password+'/'+formState.remember;
       axios.get(url)
           .then(res=>{
-        console.log('请求成功',res.data);
+            if(res.data.code===0){
+              global.username=res.data.data.username;
+              global.isLogin=true;
+              router.push({path:'/person'});
+            }
+            if(res.data.code===40){
+              console.log("login fail")
+            }
       }).catch(
           function (error){
             console.log(error)
@@ -64,6 +90,7 @@ export default({
     const onFinishFailed = errorInfo => {
       console.log('Failed:', errorInfo);
     };
+
     return {
       formState,
       onFinish,

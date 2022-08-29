@@ -15,8 +15,10 @@ import javax.servlet.http.HttpServletResponse;
 public class SignInterceptor implements HandlerInterceptor {
     @Autowired
     RedisUtil redisUtil;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
         Cookie[] cookies = request.getCookies();
         if(cookies!=null && cookies.length>0){
             for(Cookie cookie:cookies) {
@@ -28,7 +30,7 @@ public class SignInterceptor implements HandlerInterceptor {
                 }
             }
         }
-        response.sendError(404);
+        response.sendError(40);
         //返回false，不执行原来controller的方法
         return false;
     }
@@ -39,5 +41,6 @@ public class SignInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
+
     }
 }

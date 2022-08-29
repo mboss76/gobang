@@ -28,11 +28,10 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns(
                         "/",
-                        "/**/login",
                         "/**/*.html",
                         "/**/*.js",
                         "/**/*.css",
                         "/**/*.jpg",
-                        "/log/login/**");
+                        "/log/**");
     }
 }

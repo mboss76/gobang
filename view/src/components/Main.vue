@@ -69,13 +69,11 @@ export default defineComponent({
 
   data(){
     return{
-      page_num:0
+
     }
   },
   methods:{
-    changePage(pageNum){
-      this.page_num=pageNum;
-    }
+
   }
 
 });

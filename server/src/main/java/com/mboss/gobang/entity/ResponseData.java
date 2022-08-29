@@ -23,6 +23,14 @@ public class ResponseData<T> {
         responseData.setData(data);
         return  responseData;
     }
+
+    /**
+     *
+     * @param returnCode
+     * 40 未登录
+     * @return
+     * @param <T>
+     */
     public static <T> ResponseData fail(int returnCode){
         ResponseData responseData=new ResponseData();
         responseData.setCode(returnCode);
