@@ -2,7 +2,7 @@ package com.mboss.gobang.controller;
 
 import com.mboss.gobang.util.WebSocketUtil;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.websocket.*;
 import javax.websocket.server.PathParam;
@@ -10,18 +10,10 @@ import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 
 @Controller
-@ServerEndpoint("/chat/{username}")
-public class WebSocketController {
-    /**
-     * 访问聊天室页面
-     * @return
-     */
-    @GetMapping("/chatPage")
-    public String chatPage(){
-        return "chat";
-    }
+@ServerEndpoint("/gobang/{username}/{chessboard_num}")
+public class GobangSocketController {
     @OnOpen
-    public void openSession(@PathParam("username") String username, Session session){
+    public void openSession(@PathParam("username") String username, @PathParam("chessboard_num") int room_num, Session session){
         //存储用户
         WebSocketUtil.USERS_ONLINE.put(username, session);
         //向所有在线用户发送用户上线通知消息
@@ -30,7 +22,7 @@ public class WebSocketController {
         WebSocketUtil.sendMessageToAllOnlineUser(message);
     }
     @OnClose
-    public void closeSession(@PathParam("username") String username, Session session){
+    public void closeSession(@PathParam("username") String username, @PathParam("chessboard_num") int room_num,Session session){
         //删除用户
         WebSocketUtil.USERS_ONLINE.remove(username);
         //向所有在线用户发送用户下线通知消息
@@ -46,7 +38,7 @@ public class WebSocketController {
     }
 
     @OnMessage
-    public void onMessage(@PathParam("username") String username, String message){
+    public void onMessage(@PathParam("username") String username,@PathParam("chessboard_num") String chessboard_num,String message){
         //向聊天室中的人发送消息
         message = "["+username+"]：" + message;
         System.out.println(message);
