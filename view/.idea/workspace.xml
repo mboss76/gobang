@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2fb078ec-9d3e-4c0b-b09d-88d26c5dcd3d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/intercepter/AddResponseHeaderFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/configuration/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/configuration/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/configuration/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/configuration/WebConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/controller/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/controller/LogController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/entity/ResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/entity/ResponseData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/intercepter/SignInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/intercepter/SignInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/controller/GobangController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/controller/GobangSocketController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/entity/ChessBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/controller/WebSocketController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/util/RandomUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server/src/main/java/com/mboss/gobang/util/RandomUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/mboss/gobang/controller/WebSocketController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/classes/com/mboss/gobang/util/RandomUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/classes/com/mboss/gobang/util/RandomUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/target/tomcat/logs/access_log.2022-08-29.log" beforeDir="false" afterPath="$PROJECT_DIR$/../server/target/tomcat/logs/access_log.2022-08-29.log" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +86,8 @@
       <workItem from="1661672058861" duration="9307000" />
       <workItem from="1661736532231" duration="5039000" />
       <workItem from="1661747954191" duration="4652000" />
-      <workItem from="1661762166667" duration="6564000" />
+      <workItem from="1661762166667" duration="8094000" />
+      <workItem from="1661821492239" duration="22013000" />
     </task>
     <servers />
   </component>

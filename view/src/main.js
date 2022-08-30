@@ -8,7 +8,7 @@ import {routes} from './js/router'
 import {createRouter,createWebHashHistory}from 'vue-router'
 import VueCookies from 'vue-cookies';
 
-
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = 'http://localhost:8080';
 const app=createApp(App);
 app.provide('global',global);
 app.provide('axios',axios);
