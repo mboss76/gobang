@@ -5,19 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="539711bf-4fa0-425b-8d3f-34da2bf3c3fd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/controller/GobangController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/controller/GobangSocketController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/entity/ChessBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/entity/WebSocketChessboardEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/service/ChessBoardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/util/ObjectToMapUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/configuration/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/configuration/CorsConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/controller/WebSocketController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/util/RandomUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/util/RandomUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mboss/gobang/controller/WebSocketController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/mboss/gobang/util/RandomUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mboss/gobang/util/RandomUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/tomcat/logs/access_log.2022-08-29.log" beforeDir="false" afterPath="$PROJECT_DIR$/target/tomcat/logs/access_log.2022-08-29.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/controller/GobangController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/controller/GobangController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/controller/GobangSocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/controller/GobangSocketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/entity/ChessBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/entity/ChessBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/util/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/util/RedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/util/WebSocketUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mboss/gobang/util/WebSocketUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mboss/gobang/configuration/CorsConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mboss/gobang/configuration/CorsConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mboss/gobang/controller/GobangController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mboss/gobang/controller/GobangController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mboss/gobang/controller/GobangSocketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mboss/gobang/controller/GobangSocketController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mboss/gobang/entity/ChessBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mboss/gobang/entity/ChessBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mboss/gobang/util/RedisUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mboss/gobang/util/RedisUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mboss/gobang/util/WebSocketUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mboss/gobang/util/WebSocketUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../view/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../view/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../view/src/components/Gobang.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../view/src/components/Gobang.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../view/src/components/addGobang.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../view/src/components/addGobang.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/src/components/addGobang.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../view/src/components/chessboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../view/src/components/chessboard.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +154,7 @@
       <workItem from="1661747959422" duration="4961000" />
       <workItem from="1661762166596" duration="3257000" />
       <workItem from="1661821490553" duration="12680000" />
+      <workItem from="1661909231492" duration="16661000" />
     </task>
     <servers />
   </component>

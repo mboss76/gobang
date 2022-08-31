@@ -3,7 +3,9 @@ package com.mboss.gobang.entity;
 import com.mboss.gobang.util.RandomUtil;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ChessBoard {
     /**
@@ -18,6 +20,7 @@ public class ChessBoard {
      * 先手用户名和后手用户名
      */
     private String username_xianshou,username_houshou;
+    Set<String> usernames_set=new HashSet<>();
 
     /**
      * 记录步数
@@ -37,6 +40,9 @@ public class ChessBoard {
 
     //棋盘号
     private String chessboard_num;
+
+    // 在线人数
+    private int onlineNum;
     /**
      * 初始化
      */
@@ -48,7 +54,54 @@ public class ChessBoard {
         chessboard_num= RandomUtil.random8Num();
         username_xianshou=null;
         username_houshou=null;
+        onlineNum=0;
     }
+    public boolean join(String username){
+        if(username_xianshou==null){
+            return join(username,true);
+        }
+        if(username_houshou==null){
+            return join(username,false);
+        }
+        return false;
+    }
+    public boolean join(String username,boolean isXianShou){
+        if(onlineNum>=2){
+            return false;
+        }else{
+            if(usernames_set.contains(username)) return true;
+            if(isXianShou){
+                if(username_xianshou==null){
+                    username_xianshou=username;
+                }else{
+                    return false;
+                }
+            }else{
+                if(username_houshou==null){
+                    username_houshou=username;
+                }else{
+                    return false;
+                }
+            }
+            usernames_set.add(username);
+            onlineNum++;
+            return true;
+        }
+    }
+
+    public int leave(String username){
+        if(usernames_set.contains(username)){
+            usernames_set.remove(username);
+            if(username_xianshou!=null&&username_xianshou.equals(username)){
+                username_xianshou=null;
+            }else if(username_houshou!=null&&username_houshou.equals(username)){
+                username_houshou=null;
+            }
+            return --onlineNum;
+        }
+        return onlineNum;
+    }
+
     public boolean isWin(int x,int y){
         return false;
     }
@@ -80,11 +133,6 @@ public class ChessBoard {
             return username_houshou;
         }
 
-    }
-    public int waitWho(){
-        if(username_xianshou==null) return 0;
-        if(username_houshou==null) return 1;
-        return -1;
     }
 
     public int[][] getChessboard_arr() {
@@ -141,5 +189,21 @@ public class ChessBoard {
 
     public void setChessboard_num(String chessboard_num) {
         this.chessboard_num = chessboard_num;
+    }
+
+    public int getOnlineNum() {
+        return onlineNum;
+    }
+
+    public void setOnlineNum(int onlineNum) {
+        this.onlineNum = onlineNum;
+    }
+
+    public Set<String> getUsernames_set() {
+        return usernames_set;
+    }
+
+    public void setUsernames_set(Set<String> usernames_set) {
+        this.usernames_set = usernames_set;
     }
 }

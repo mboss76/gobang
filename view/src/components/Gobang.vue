@@ -19,10 +19,10 @@
       <div v-show="page_num===3">
         <h1>加入页面</h1>
         <a-input  size="large" v-model:value="chessboard_num" placeholder="请输入房间号" />
-        <a-button v-on:click="page_num=page_num+1">确认加入</a-button>
+        <a-button v-on:click="joinChessboard">确认加入</a-button>
       </div>
       <div v-show="page_num===4">
-        <chessboard></chessboard>
+        <chessboard :websocket="ws"></chessboard>
       </div>
 
     </div>
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import {reactive, ref, onMounted, inject} from 'vue'
+import {reactive, ref, onMounted, inject, onDeactivated, onUnmounted} from 'vue'
 import Chessboard from "@/components/chessboard";
 export default {
   name: "Gobang",
@@ -39,6 +39,9 @@ export default {
 
     const global=inject('global');
     const axios=inject('axios');
+
+    let websocket_url='ws://localhost:9999/gobang/';
+    let ws;
 
     /*
     * page_num:
@@ -59,23 +62,75 @@ export default {
 
     //创建棋盘函数
     function createChessboard(){
-      const create_url=global.http_local_url+'gobang/createChessboard/'+global.username+'/'+xianshouOrhoushou.value;
+      let create_url=global.http_local_url+'gobang/createChessboard/'+global.username+'/'+xianshouOrhoushou.value;
       console.log(create_url)
       axios.get(create_url).then(res=>{
         const resData=res.data;
         console.log(resData);
         if(resData.code===0){
           chessboard_num.value=resData.data.chessboard_num;
+          let ws_url=websocket_url+global.username+'/'+chessboard_num.value;
+          init(ws_url);
         }
       })
     }
+    function joinChessboard(){
+      let join_url=global.http_local_url+'gobang/isChessboard/'+chessboard_num.value;
+      axios.get(join_url)
+          .then(
+              res=>{
+                console.log(res.data);
+                let data=res.data.data;
+                console.log(data)
+                if(res.data.code===0&&data.isChessboard===true){
+                  let ws_url=websocket_url+global.username+'/'+chessboard_num.value;
+                  init(ws_url);
+                }
 
+              }
+          );
+    }
+
+    function init(websocket_url){
+      ws=new WebSocket(websocket_url);
+      ws.onopen=open;
+      ws.onerror=error;
+      ws.onclose=onclose;
+      ws.onmessage=getMessage;
+    }
+    function open(){
+      console.log("socket连接成功");
+    }
+
+    function error(){
+      alert("websocket发生意外")
+    }
+    function getMessage(msg){
+      console.log(msg.data)
+    }
+
+    function onclose(){
+      console.log("socket已关闭")
+    }
+
+    function close(){
+      if(ws&&ws.readyState===1){
+        ws.close();
+        console.log("主动关闭socket连接")
+      }
+    }
+    onUnmounted(()=>{
+      console.log("onUnmounted");
+      close();
+    })
     return{
       page_num:ref(1),
       radioStyle,
       xianshouOrhoushou,
       chessboard_num,
       createChessboard,
+      joinChessboard,
+      ws,
     }
   }
 }

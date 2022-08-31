@@ -4,6 +4,7 @@
 
 <script>
 import global from "@/js/global";
+import {ref} from "vue";
 export default {
   name: "Person",
   data(){

@@ -7,6 +7,9 @@ import {inject, onMounted} from "vue";
 
 export default {
   name: "chessboard",
+  props:{
+    websocket,
+  },
   setup(){
     const global=inject('global');
 
